@@ -12,10 +12,37 @@ app.post('/download', async (req, res) => {
 
     try {
         const videoInfo = await ytdl.getInfo(link);
-        const videoFormat = ytdl.chooseFormat(videoInfo.formats, { quality });
-        const fileExtension = mp4 === 'true' ? 'mp4' : 'mp3';
-        const cleanedFileExtension = fileExtension.replace(/_/g, '');
-        const fileName = `${videoInfo.videoDetails.title}.${cleanedFileExtension}`;
+        const fileExtension = mp4 === true ? 'mp4' : 'mp3';
+
+        let qualityValue;
+        switch (quality) {
+            case 0:
+                qualityValue =  "highest";
+                break;
+            case 1:
+                qualityValue =  "137";
+                break;
+            case 2:
+                qualityValue =  "136";
+                break;
+            case 3:
+                qualityValue =  "135";
+                break;
+            case 4:
+                qualityValue =  "lowest";
+                break;
+        }
+        let videoFormat
+        try {
+            videoFormat = ytdl.chooseFormat(videoInfo.formats, { quality: qualityValue });
+        } catch (error) {
+            videoFormat = ytdl.chooseFormat(videoInfo.formats, { quality: "highest" });
+        }
+
+        if (fileExtension === 'mp3') {
+            videoFormat = ytdl.filterFormats(videoInfo.formats, 'audioonly')[0];
+        }
+        const fileName = `${videoInfo.videoDetails.title}.${fileExtension}`;
 
 
         res.set({

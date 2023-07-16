@@ -6,7 +6,7 @@ interface DropDown {
 
 interface Props {
     name: string;
-    onSubmit: (link: string, mp4: boolean, quality: string) => void;
+    onSubmit: (link: string, mp4: boolean, quality: number) => void;
     inputName: string
     inputPlaceholder: string
     buttonName: string
@@ -16,7 +16,7 @@ interface Props {
 function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdowns}: Props) {
     const [link, setLink] = useState("");
     const [mp4, setMp4] = useState(true);
-    const [quality, setQuality] = useState("");
+    const [quality, setQuality] = useState(0);
 
     const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLink(event.target.value);
@@ -27,7 +27,7 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
     };
 
     const handleQualityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setQuality(event.target.value);
+        setQuality(event.target.selectedIndex);
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
