@@ -22,11 +22,11 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
                         <input type="text" id="textInput" className="form-control pulse" placeholder={inputPlaceholder}/>
                     </div>
 
-                    {dropdowns.map((dropdown) => (
-                        <div className="mb-3">
-                            <select className="form-select">
-                                {dropdown.options.map((option) => (
-                                    <option>{option}</option>
+                    {dropdowns.map((dropdown, index) => (
+                        <div key={index} className="mb-3">
+                            <select key={index} className="form-select">
+                                {dropdown.options.map((option, index) => (
+                                    <option key={index}>{option}</option>
                                 ))}
                             </select>
                         </div>

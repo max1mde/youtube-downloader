@@ -1,18 +1,27 @@
 body {
     background: linear-gradient(0deg, #ffffff, #ff623f)  no-repeat;
     background-size: cover;
+    font-family: Arial;
+    font-weight: bold;
 }
 
 .main-logo {
     width: 100px;
     display: flex;
     margin: auto;
+    transition: all 0.2s;
+    margin-top: 20px;
+}
+
+.main-logo:hover {
+    transform: scale(1.2);
 }
 
 .main-container {
     margin: auto;
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .youtube-downloader {
@@ -26,7 +35,7 @@ body {
 }
 
 .pulse {
-    animation: pulse 2s infinite;
+    animation: pulse 1.3s infinite;
 }
 
 /*Animations*/
@@ -37,7 +46,7 @@ body {
     }
 
     70% {
-        box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0);
+        box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
     }
 
     100% {
