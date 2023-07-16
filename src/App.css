@@ -24,3 +24,23 @@ body {
     text-align: center;
     display: inline-block;
 }
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/*Animations*/
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 60, 194, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}

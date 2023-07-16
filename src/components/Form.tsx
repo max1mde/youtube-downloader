@@ -19,7 +19,7 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
                     <legend>{name}</legend>
                     <div className="mb-3">
                         <label htmlFor="textInput" className="form-label">{inputName}</label>
-                        <input type="text" id="textInput" className="form-control" placeholder={inputPlaceholder}/>
+                        <input type="text" id="textInput" className="form-control pulse" placeholder={inputPlaceholder}/>
                     </div>
 
                     {dropdowns.map((dropdown) => (
