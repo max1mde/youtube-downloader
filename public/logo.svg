@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0-0" gradientUnits="userSpaceOnUse" x1="250.774" y1="79.053" x2="250.774" y2="408.88" xlink:href="#color-0"/>
+    <linearGradient id="color-0" bx:pinned="true">
+      <stop style="stop-color: #d38312;" offset="0"/>
+      <stop style="stop-color: #a83279;" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect x="23.67" y="79.053" width="454.208" height="329.827" rx="20" ry="20" style="stroke: rgb(0, 0, 0); fill: url(#color-0-0);"/>
+  <rect x="184.561" y="127.939" width="121.287" height="132.426" rx="20" ry="20" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <path d="M 226.573 287.168 Q 247.061 267.301 267.549 287.168 L 314.503 332.7 Q 334.991 352.567 294.016 352.567 L 200.106 352.567 Q 159.131 352.567 179.619 332.7 Z" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" bx:shape="triangle 159.131 267.301 175.86 85.266 0.5 0.233 1@8a081cd5"/>
+</svg>

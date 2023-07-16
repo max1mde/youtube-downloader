@@ -1,0 +1,21 @@
+body {
+    background: linear-gradient(0deg, #ffffff, #ff623f)  no-repeat;
+    background-size: cover;
+}
+
+.main-logo {
+    width: 100px;
+    display: flex;
+    margin: auto;
+}
+
+.youtube-downloader {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
