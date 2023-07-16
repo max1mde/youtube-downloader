@@ -5,6 +5,10 @@ body {
     font-weight: bold;
 }
 
+.center-text {
+    text-align: center;
+}
+
 .main-logo {
     width: 100px;
     display: flex;
