@@ -35,6 +35,9 @@ function App() {
                 anchor.download = fileName;
                 anchor.click();
                 setStatus(`Downloading ${fileName}...`);
+                setTimeout(() => {
+                    setStatus('');
+                }, 6000);
             } else {
                 throw new Error('Error downloading YouTube video');
             }
@@ -47,7 +50,7 @@ function App() {
     return (
         <div>
             <img className={"main-logo"} src={"../public/logo.svg"} alt={"logo"}/>
-            <p className={"center-text"}>{status}</p>
+            <p className={"center-text download-status"}>{status}</p>
             <div className={"container"}></div>
             <div className={"main-container"}>
                 <div className={"youtube-downloader hover-card"}>
