@@ -14,7 +14,7 @@ function App() {
     const [status, setStatus] = useState('');
 
     const handleFormSubmit = async (link: string, mp4: boolean, quality: number) => {
-        setStatus('Downloading video...');
+        setStatus(mp4 ? 'Downloading video...' : 'Downloading audio...');
         try {
             const response = await fetch('/download', {
                 method: 'POST',
@@ -57,6 +57,7 @@ function App() {
                     <Form name={"YouTube Downloader"} onSubmit={handleFormSubmit} inputName={"Download any video from YouTube using a link with the best quality"} inputPlaceholder={"Link https://yout..."} buttonName={"Download"} dropdowns={dropDownYT}></Form>
                 </div>
             </div>
+            <p className={"center-text made-by"}>Made by <a href={"https://github.com/MaximFiedler"}>Maxim Fiedler</a></p>
         </div>
     )
 }

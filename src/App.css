@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+.made-by {
+    margin-top: 100px;
+}
+
 .download-status {
     animation: pulse-fade 1s infinite;
 }
@@ -43,7 +47,7 @@ body {
 }
 
 .pulse {
-    animation: pulse 1.3s infinite;
+    animation: pulse 5s infinite;
 }
 
 /*Animations*/
