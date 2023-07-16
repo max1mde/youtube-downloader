@@ -15,7 +15,7 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
     return (
         <div>
             <form>
-                <fieldset>
+                <fieldset className={"d-grid gap-2"}>
                     <legend>{name}</legend>
                     <div className="mb-3">
                         <label htmlFor="textInput" className="form-label">{inputName}</label>

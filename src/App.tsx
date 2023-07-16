@@ -12,9 +12,12 @@ function App() {
   return (
     <div>
       <img className={"main-logo"} src={"../public/logo.svg"} alt={"logo"}/>
-      <div className={"youtube-downloader"}>
-        <Form name={"YouTube Downloader"} onSubmit={() => null} inputName={"Download any video from YouTube"} inputPlaceholder={"Link https://yout..."} buttonName={"Download"} dropdowns={dropDownYT}></Form>
-      </div>
+      <div className={"container"}></div>
+        <div className={"main-container"}>
+            <div className={"youtube-downloader"}>
+                <Form name={"YouTube Downloader"} onSubmit={() => null} inputName={"Download any video from YouTube"} inputPlaceholder={"Link https://yout..."} buttonName={"Download"} dropdowns={dropDownYT}></Form>
+            </div>
+        </div>
     </div>
   )
 }
