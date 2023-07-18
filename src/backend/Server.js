@@ -1,10 +1,12 @@
 import express from'express';
 import ytdl from 'ytdl-core';
 import bodyParser from 'body-parser';
-import TiktokDL from '@tobyg74/tiktok-api-dl';
-
+import {TiktokDL} from "@tobyg74/tiktok-api-dl";
+import cors from 'cors';
+import axios from 'axios';
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -60,17 +62,27 @@ app.post('/download-youtube', async (req, res) => {
 });
 
 app.post('/download-tiktok', async (req, res) => {
-    const { link, mp4, quality } = req.body;
+    const { link } = req.body;
 
     try {
-        res.set({
-            'Content-Disposition': `attachment; filename=tiktokvideo.mp4"`,
-            'Content-Type': mp4 === 'true' ? 'video/mp4' : 'audio/mpeg',
-        });
+        TiktokDL(link).then(async (result) => {
+            const videoUrl = result.result.video[0];
 
-        TiktokDL(link).then((result) => {
-            console.log(result)
-        })
+            const response = await axios.get(videoUrl, {
+                responseType: 'stream',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                },
+            });
+
+            res.set({
+                'Content-Disposition': 'attachment; filename="tiktokvideo.mp4"',
+                'Content-Type': 'video/mp4',
+            });
+
+            response.data.pipe(res);
+        });
     } catch (error) {
         console.error('Error downloading TikTok video:', error);
         res.status(500).send('Error downloading TikTok video');

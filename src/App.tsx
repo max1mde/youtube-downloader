@@ -52,15 +52,15 @@ function App() {
     };
 
 
-    const handleFormSubmitTikTok = async (link: string, mp4: boolean, quality: number) => {
-        setStatus(mp4 ? 'Downloading video...' : 'Downloading audio...');
+    const handleFormSubmitTikTok = async (link: string) => {
+        setStatus('Downloading video...');
         try {
-            const response = await fetch('/download-tiktok', {
+            const response = await fetch('http://localhost:4002/download-tiktok', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ link, mp4, quality }),
+                body: JSON.stringify({ link }),
             });
             if (response.ok) {
                 const fileName = response.headers
@@ -85,6 +85,7 @@ function App() {
             setStatus('Error downloading TikTok video');
         }
     };
+
 
     return (
         <div>
