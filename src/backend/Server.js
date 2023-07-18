@@ -1,13 +1,15 @@
 import express from'express';
 import ytdl from 'ytdl-core';
 import bodyParser from 'body-parser';
+import TiktokDL from '@tobyg74/tiktok-api-dl';
+
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/download', async (req, res) => {
+app.post('/download-youtube', async (req, res) => {
     const { link, mp4, quality } = req.body;
 
     try {
@@ -57,6 +59,24 @@ app.post('/download', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.post('/download-tiktok', async (req, res) => {
+    const { link, mp4, quality } = req.body;
+
+    try {
+        res.set({
+            'Content-Disposition': `attachment; filename=tiktokvideo.mp4"`,
+            'Content-Type': mp4 === 'true' ? 'video/mp4' : 'audio/mpeg',
+        });
+
+        TiktokDL(link).then((result) => {
+            console.log(result)
+        })
+    } catch (error) {
+        console.error('Error downloading TikTok video:', error);
+        res.status(500).send('Error downloading TikTok video');
+    }
+});
+
+app.listen(4002, () => {
+    console.log('Server is running on port 4002');
 });
