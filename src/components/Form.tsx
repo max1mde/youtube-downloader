@@ -32,7 +32,9 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        onSubmit(link, mp4, quality);
+        if (link.trim() !== "") {
+            onSubmit(link, mp4, quality);
+        }
     };
 
     return (
@@ -42,19 +44,19 @@ function Form({name, onSubmit, inputName, inputPlaceholder, buttonName, dropdown
                     <legend>{name}</legend>
                     <div className="mb-3">
                         <label htmlFor="textInput" className="form-label">{inputName}</label>
-                        <input onChange={handleLinkChange} type="text" id="textInput" className="form-control pulse" placeholder={inputPlaceholder}/>
+                        <input onChange={handleLinkChange} type="text" id="textInput" className="form-control pulse bg-dark" placeholder={inputPlaceholder}/>
                     </div>
 
                     {dropdowns.map((dropdown, index) => (
                         <div key={index} className="mb-3">
-                            <select className="form-select" onChange={index === 0 ? handleFormatChange : handleQualityChange}>
+                            <select className="form-select bg-dark" onChange={index === 0 ? handleFormatChange : handleQualityChange}>
                                 {dropdown.options.map((option, index) => (
                                     <option key={index}>{option}</option>
                                 ))}
                             </select>
                         </div>
                     ))}
-                    <button type="submit" className="btn btn-success">
+                    <button type="submit" className="btn btn-secondary">
                         {buttonName}
                     </button>
                 </fieldset>

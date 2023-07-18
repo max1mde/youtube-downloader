@@ -47,7 +47,10 @@ function App() {
             }
         } catch (error) {
             console.error('Error downloading YouTube video:', error);
-            setStatus('Error downloading YouTube video');
+            setStatus('Failed to download the video!');
+            setTimeout(() => {
+                setStatus('');
+            }, 6000);
         }
     };
 
@@ -82,15 +85,17 @@ function App() {
             }
         } catch (error) {
             console.error('Error downloading TikTok video:', error);
-            setStatus('Error downloading TikTok video');
+            setStatus('Failed to download the video!');
+            setTimeout(() => {
+                setStatus('');
+            }, 6000);
         }
     };
 
 
     return (
         <div>
-            <img className={"main-logo"} src={"../public/logo.svg"} alt={"logo"}/>
-            <p className={"center-text download-status"}>{status}</p>
+            <p className={"download-status"}>{status}</p>
             <div className={"container"}></div>
             <div className={"main-container"}>
                 <div className={"youtube-downloader hover-card"}>
