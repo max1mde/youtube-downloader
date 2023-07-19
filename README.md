@@ -11,7 +11,9 @@
 
 # YouTube Downloader
 
-## If you want to contribute to this little fun project just open a pull request
+## Features
+- YouTube downloader
+- TikTok downloader
 
 ## TODO
 - Spotify downloader
