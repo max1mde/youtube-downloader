@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import {TiktokDL} from "@tobyg74/tiktok-api-dl";
 import cors from 'cors';
 import axios from 'axios';
+import https from 'https';
+
 
 const app = express();
 app.use(cors());
@@ -74,6 +76,7 @@ app.post('/download-tiktok', async (req, res) => {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Headers': 'Content-Type',
                 },
+                httpsAgent: new https.Agent({ rejectUnauthorized: false }),
             });
 
             res.set({
@@ -88,6 +91,7 @@ app.post('/download-tiktok', async (req, res) => {
         res.status(500).send('Error downloading TikTok video');
     }
 });
+
 
 app.listen(4002, () => {
     console.log('Server is running on port 4002');

@@ -22,8 +22,6 @@ body {
     margin-top: 100px;
 }
 
-
-
 .download-status {
     animation: pulse-fade 1s infinite;
     backdrop-filter: blur(20px);
