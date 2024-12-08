@@ -108,7 +108,7 @@ function App() {
                     <Form name={"TikTok Downloader"} onSubmit={handleFormSubmitTikTok} inputName={"Download any video from TikTok using a link with the best quality"} inputPlaceholder={"Link https://tiktok..."} buttonName={"Download"} dropdowns={dropDownTT}></Form>
                 </div>
             </div>
-            <p className={"center-text made-by"}>Made by <a href={"https://github.com/MaximFiedler"}>Maxim Fiedler</a></p>
+            <p className={"center-text made-by"}>Made by <a href={"https://github.com/max1mde"}>Maxim</a></p>
         </div>
     )
 }
